@@ -1,4 +1,5 @@
 import Sheet from "@/app/_components/Sheet";
+import Hero from "@/app/_components/Hero";
 
 // members 配下のページに共通のレイアウトを提供する
 type Props = {
@@ -6,5 +7,10 @@ type Props = {
 };
 
 export default function RootLayout({ children }: Props) {
-  return <Sheet>{children}</Sheet>;
+  return (
+    <>
+      <Hero title="Members" sub="メンバー" />
+      <Sheet>{children}</Sheet>
+    </>
+  );
 }
