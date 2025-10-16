@@ -17,18 +17,16 @@ export type Member = {
 // カテゴリの型を定義
 export type Category = {
   name: string;
-};
+} & MicroCMSListContent;
 
 // 記事の型を定義
 export type News = {
-  id: string;
   title: string;
-  category: {
-    name: string;
-  };
-  publishedAt: string;
-  createdAt: string;
-};
+  description: string;
+  content: string;
+  thumbnail: MicroCMSImage;
+  category: Category;
+} & MicroCMSListContent;
 
 // サービスドメインが設定されていない場合
 if (!process.env.MICROCMS_SERVICE_DOMAIN) {
@@ -49,6 +47,14 @@ const client = createClient({
 export const getMembersList = async (queries?: MicroCMSQueries) => {
   const listData = await client.getList<Member>({
     endpoint: "members",
+    queries,
+  });
+  return listData;
+};
+
+export const getNewsList = async (queries?: MicroCMSQueries) => {
+  const listData = await client.getList<News>({
+    endpoint: "news",
     queries,
   });
   return listData;
