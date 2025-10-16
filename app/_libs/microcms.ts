@@ -40,7 +40,7 @@ if (!process.env.MICROCMS_API_KEY) {
 }
 
 // SDK に用意されている createClient を使ってクライアントを作成
-export const client = createClient({
+const client = createClient({
   serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
   apiKey: process.env.MICROCMS_API_KEY,
 });
