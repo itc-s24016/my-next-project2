@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import styles from "./index.module.css";
 
 export default function SearchField() {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,6 +31,7 @@ export default function SearchField() {
         <input
           type="text"
           name="q"
+          defaultValue={searchParams.get("q") ?? undefined}
           placeholder="キーワードを入力"
           className={styles.searchInput}
         />
