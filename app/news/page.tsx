@@ -4,8 +4,7 @@ import Pagination from "../_components/Pagination";
 import SearchField from "@/app/_components/SearchField";
 import { NEWS_LIST_LIMIT } from "@/app/_constants";
 
-// キャッシュ保持時間を0秒に設定して常に最新の情報を取得
-export const revalidate = 0;
+export const revalidate = 60;
 
 export default async function Page() {
   const { contents: news, totalCount } = await getNewsList({
