@@ -1,6 +1,10 @@
 import Sheet from "@/app/_components/Sheet";
 import Hero from "@/app/_components/Hero";
 
+export const metadata = {
+  title: "メンバー",
+};
+
 // members 配下のページに共通のレイアウトを提供する
 type Props = {
   children: React.ReactNode;
